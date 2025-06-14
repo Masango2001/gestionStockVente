@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="page-header">
+    <h1>Search stocks</h1>
+    <p><?php echo $this->tag->a($this->url->get("stocks/new"), "Create stocks") ?></p>
+</div>
+
+<?php echo $this->getContent() ?>
+
+<?php echo $this->flash->output() ?>
+
+<form action="<?= $this->url->get('stocks/search') ?>" class="form-horizontal" method="get">
+    <div class="form-group">
+    <label for="fieldIdStock" class="col-sm-2 control-label">ID Of STOCK</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("ID_STOCK", $stock->ID_STOCK, ["size" => 30, "class" => "form-control", "id" => "fieldIdStock"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldIdProduit" class="col-sm-2 control-label">ID Of PRODUIT</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("ID_PRODUIT", $stock->ID_PRODUIT, ["size" => 30, "class" => "form-control", "id" => "fieldIdProduit"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldQuantiteStock" class="col-sm-2 control-label">QUANTITE Of STOCK</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("QUANTITE_STOCK", $stock->QUANTITE_STOCK, ["size" => 30, "class" => "form-control", "id" => "fieldQuantiteStock"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldDateMisejour" class="col-sm-2 control-label">DATE Of MISEJOUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputDate("DATE_MISEJOUR", $stock->DATE_MISEJOUR, ["class" => "form-control", "id" => "fieldDateMisejour"]) ?>
+    </div>
+</div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php echo $this->tag->inputSubmit("search", "Search", ["class" => "btn btn-primary"]) ?>
+        </div>
+    </div>
+</form>

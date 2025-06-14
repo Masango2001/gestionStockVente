@@ -1,0 +1,58 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?= $this->tag->a($this->url->get("fournisseurs"), "Go Back") ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>Edit Fournisseur</h1>
+</div>
+
+<?= $this->getContent(); ?>
+
+<form action="<?= $this->url->get('fournisseurs/save') ?>" class="form-horizontal" method="post">
+    <?= $this->tag->inputHidden("ID_FOURNISSEUR", $fournisseur->ID_FOURNISSEUR) ?>
+
+    <div class="form-group">
+        <label for="fieldNomCompletFournisseur" class="col-sm-2 control-label">Nom Complet Fournisseur</label>
+        <div class="col-sm-10">
+            <?= $this->tag->inputText("NOM_COMPLET_FOURNISSEUR", $fournisseur->NOM_COMPLET_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldNomCompletFournisseur"]) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fieldAdresseFournisseur" class="col-sm-2 control-label">Adresse Fournisseur</label>
+        <div class="col-sm-10">
+            <?= $this->tag->inputText("ADRESSE_FOURNISSEUR", $fournisseur->ADRESSE_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldAdresseFournisseur"]) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fieldEmailFournisseur" class="col-sm-2 control-label">Email Fournisseur</label>
+        <div class="col-sm-10">
+            <?= $this->tag->inputText("EMAIL_FOURNISSEUR", $fournisseur->EMAIL_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldEmailFournisseur"]) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="fieldTelephoneFournisseur" class="col-sm-2 control-label">Téléphone Fournisseur</label>
+        <div class="col-sm-10">
+            <?= $this->tag->inputText("TELEPHONE_FOURNISSEUR", $fournisseur->TELEPHONE_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldTelephoneFournisseur"]) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+
+<button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>

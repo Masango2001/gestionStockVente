@@ -1,0 +1,37 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="page-header">
+    <h1>Search categories</h1>
+    <p><?php echo $this->tag->a($this->url->get("categories/new"), "Create categories") ?></p>
+</div>
+
+<?php echo $this->getContent() ?>
+
+<?php echo $this->flash->output() ?>
+
+<form action="<?= $this->url->get('categories/search') ?>" class="form-horizontal" method="get">
+    <div class="form-group">
+    <label for="fieldIdCategorie" class="col-sm-2 control-label">ID Of CATEGORIE</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("ID_CATEGORIE", $categorie->ID_CATEGORIE, ["size" => 30, "class" => "form-control", "id" => "fieldIdCategorie"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldNomCategorie" class="col-sm-2 control-label">NOM Of CATEGORIE</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("NOM_CATEGORIE", $categorie->NOM_CATEGORIE, ["size" => 30, "class" => "form-control", "id" => "fieldNomCategorie"]) ?>
+    </div>
+</div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php echo $this->tag->inputSubmit("search", "Search", ["class" => "btn btn-primary"]) ?>
+        </div>
+    </div>
+</form>

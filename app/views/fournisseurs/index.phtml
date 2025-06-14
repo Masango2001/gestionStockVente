@@ -1,0 +1,58 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="page-header">
+    <h1>Search fournisseurs</h1>
+    <p><?php echo $this->tag->a($this->url->get("fournisseurs/new"), "Create fournisseurs") ?></p>
+</div>
+
+<?php echo $this->getContent() ?>
+
+<?php echo $this->flash->output() ?>
+
+<form action="<?= $this->url->get('fournisseurs/search') ?>" class="form-horizontal" method="get">
+    <div class="form-group">
+    <label for="fieldIdFournisseur" class="col-sm-2 control-label">ID Of FOURNISSEUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("ID_FOURNISSEUR", $fournisseur->ID_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldIdFournisseur"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldNomCompletFournisseur" class="col-sm-2 control-label">NOM Of COMPLET Of FOURNISSEUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("NOM_COMPLET_FOURNISSEUR", $fournisseur->NOM_COMPLET_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldNomCompletFournisseur"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldAdresseFournisseur" class="col-sm-2 control-label">ADRESSE Of FOURNISSEUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("ADRESSE_FOURNISSEUR", $fournisseur->ADRESSE_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldAdresseFournisseur"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldEmailFournisseur" class="col-sm-2 control-label">EMAIL Of FOURNISSEUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("EMAIL_FOURNISSEUR", $fournisseur->EMAIL_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldEmailFournisseur"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldTelephoneFournisseur" class="col-sm-2 control-label">TELEPHONE Of FOURNISSEUR</label>
+    <div class="col-sm-10">
+        <?= $this->tag->inputText("TELEPHONE_FOURNISSEUR", $fournisseur->TELEPHONE_FOURNISSEUR, ["size" => 30, "class" => "form-control", "id" => "fieldTelephoneFournisseur"]) ?>
+    </div>
+</div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <?php echo $this->tag->inputSubmit("search", "Search", ["class" => "btn btn-primary"]) ?>
+        </div>
+    </div>
+</form>

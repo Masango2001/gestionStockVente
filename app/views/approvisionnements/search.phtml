@@ -1,0 +1,71 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->a($this->url->get("approvisionnements/index"), "Go Back"); ?></li>
+            <li class="next"><?php echo $this->tag->a($this->url->get("approvisionnements/new"), "Create"); ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>Search result</h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<div class="row">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID Of APPROVISIONNEMENT</th>
+            <th>ID Of PRODUIT</th>
+            <th>ID Of FOURNISSEUR</th>
+            <th>QUANTITE Of APPROVISIONNEMENT</th>
+            <th>PRIX Of UNITAIRE Of ACHAT</th>
+            <th>DATE Of APPROVISIONNEMENT</th>
+
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($page->getItems() as $approvisionnement): ?>
+            <tr>
+                <td><?php echo $approvisionnement->ID_APPROVISIONNEMENT; ?></td>
+            <td><?php echo $approvisionnement->ID_PRODUIT; ?></td>
+            <td><?php echo $approvisionnement->ID_FOURNISSEUR; ?></td>
+            <td><?php echo $approvisionnement->QUANTITE_APPROVISIONNEMENT; ?></td>
+            <td><?php echo $approvisionnement->PRIX_UNITAIRE_ACHAT; ?></td>
+            <td><?php echo $approvisionnement->DATE_APPROVISIONNEMENT; ?></td>
+
+                <td><?php echo $this->tag->a($this->url->get("approvisionnements/edit/" . $approvisionnement->ID_APPROVISIONNEMENT), "Edit"); ?></td>
+                <td><?php echo $this->tag->a($this->url->get("approvisionnements/delete/" . $approvisionnement->ID_APPROVISIONNEMENT), "Delete"); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <div class="col-sm-1">
+        <p class="pagination" style="line-height: 1.42857;padding: 6px 12px;">
+            <?php echo $page->getCurrent(), "/", $page->getTotalItems() ?>
+        </p>
+    </div>
+    <div class="col-sm-11">
+        <nav>
+            <ul class="pagination">
+                <li><?php echo $this->tag->a($this->url->get("approvisionnements/search"), "First", ['class' => 'page-link', 'id' => 'first']) ?></li>
+                <li><?php echo $this->tag->a($this->url->get("approvisionnements/search?page=" . $page->getPrevious()), "Previous", ['class' => 'page-link', 'id' => 'previous']) ?></li>
+                <li><?php echo $this->tag->a($this->url->get("approvisionnements/search?page=" . $page->getNext()), "Next", ['class' => 'page-link', 'id' => 'next']) ?></li>
+                <li><?php echo $this->tag->a($this->url->get("approvisionnements/search?page=" . $page->getLast()), "Last", ['class' => 'page-link', 'id' => 'last']) ?></li>
+            </ul>
+        </nav>
+    </div>
+</div>
