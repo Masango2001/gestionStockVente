@@ -47,4 +47,4 @@ Bienvenue dans le projet de **Gestion des Stocks et des Ventes** ! Cette applica
 Pour cloner ce projet, exécutez la commande suivante :
 
 ```bash
-git clone https://github.com/masango2001/gestion-stocks-ventes.git
+git clone https://github.com/masango2001/gestionStockVente.git
